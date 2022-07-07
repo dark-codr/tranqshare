@@ -22,7 +22,7 @@ django-jet2==1.0.12
 feedparser==6.0.8
 google-api-python-client==1.4.1
 
-django-stdimage==5.3.0 # http://johannes.maron.family/django-stdimage/
+django-stdimage==6.0.1 # http://johannes.maron.family/django-stdimage/
 django-countries-plus==2.0.0
 django-parler==2.3
 django-rosetta==0.9.8
