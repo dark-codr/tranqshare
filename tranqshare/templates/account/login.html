@@ -1,0 +1,59 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account socialaccount %}
+{% load crispy_forms_tags %}
+
+{% block head_title %}{% translate "Sign In" %}{% endblock %}
+
+{% block inner %}
+
+<h1 class="text-3xl font-black text-dark pb-4">{% translate "Sign In" %}</h1>
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+  <p class="text-base text-dark/60">
+    {% translate "Please sign in with one of your existing third party accounts:" %}
+    {% if ACCOUNT_ALLOW_REGISTRATION %}
+      {% blocktranslate trimmed %}
+        Or, <a href="{{ signup_url }}">sign up</a>
+        for a {{ site_name }} account and sign in below:
+      {% endblocktranslate %}
+    {% endif %}
+  </p>
+
+  <div class="socialaccount_ballot">
+
+    <ul class="socialaccount_providers">
+      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+    </ul>
+
+    <div class="login-or text-xl text-dark font-black ">{% translate "or" %}</div>
+
+  </div>
+
+  {% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+  {% if ACCOUNT_ALLOW_REGISTRATION %}
+    <p class="text-base text-dark/60">
+      {% blocktranslate trimmed %}
+        If you have not created an account yet, then please
+        <a href="{{ signup_url }}" class="text-xl text-variant-2 font-bold">sign up</a> first.
+      {% endblocktranslate %}
+    </p>
+  {% endif %}
+{% endif %}
+
+<form class="login space-y-4" method="POST" action="{% url 'account_login' %}">
+  {% csrf_token %}
+  {{ form|crispy }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <a class="block secondaryAction text-base text-bold font-black text-variant-2" href="{% url 'account_reset_password' %}">{% translate "Forgot Password?" %}</a>
+  <button class="primaryAction hover:scale-105 duration-300 btn-primary block w-full md:w-1/2 bg-variant-1 text-dark py-2 text-xl font-black" type="submit">{% translate "Sign In" %}</button>
+</form>
+
+{% endblock %}

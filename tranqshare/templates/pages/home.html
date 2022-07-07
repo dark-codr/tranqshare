@@ -1,0 +1,470 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block header %}
+{% include "snippets/header.html" %}
+{{ block.super }}
+{% endblock header %}
+
+{% block content %}
+<section class="w-screen px-3 md:px-14 h-[90vh] bg-dark/70 py-14 md:py-24 md:flex md:items-center md:space-y-0 space-y-16 md:text-inherit">
+  <div class="w-full md:w-1/3 space-y-4">
+    <h2 class="text-3xl md:text-5xl font-bold text-white">
+      Quick & Safe access to investing, anytime and anywhere
+    </h2>
+    <p class="text-base md:text-xl text-white">
+      Investing has never been easier. Everything you are looking for in an ultimate investment platform — from the best investment opportunities to the best investment tools — is available in one place.
+    </p>
+    <div class="w-full space-y-6">
+      <a href="{% url 'account_signup' %}" class="w-full py-3 rounded-sm text-dark text-xl font-bold bg-variant-1 hover:bg-variant-1 duration-500 px-4 ">
+        Get Started For Free
+      </a>
+      <!-- <div class="w-full flex items-center space-x-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-white w-7 h-7 cursor-pointer hover:scale-105 duration-300" viewBox="0 0 384 512"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-white w-7 h-7 cursor-pointer hover:scale-105 duration-300" viewBox="0 0 448 512"><path d="M0 93.7l183.6-25.3v177.4H0V93.7zm0 324.6l183.6 25.3V268.4H0v149.9zm203.8 28L448 480V268.4H203.8v177.9zm0-380.6v180.1H448V32L203.8 65.7z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="text-white w-7 h-7 cursor-pointer hover:scale-105 duration-300" viewBox="0 0 496 512"><path d="M131.5 217.5L55.1 100.1c47.6-59.2 119-91.8 192-92.1 42.3-.3 85.5 10.5 124.8 33.2 43.4 25.2 76.4 61.4 97.4 103L264 133.4c-58.1-3.4-113.4 29.3-132.5 84.1zm32.9 38.5c0 46.2 37.4 83.6 83.6 83.6s83.6-37.4 83.6-83.6-37.4-83.6-83.6-83.6-83.6 37.3-83.6 83.6zm314.9-89.2L339.6 174c37.9 44.3 38.5 108.2 6.6 157.2L234.1 503.6c46.5 2.5 94.4-7.7 137.8-32.9 107.4-62 150.9-192 107.4-303.9zM133.7 303.6L40.4 120.1C14.9 159.1 0 205.9 0 256c0 124 90.8 226.7 209.5 244.9l63.7-124.8c-57.6 10.8-113.2-20.8-139.5-72.5z"/></svg>
+      </div> -->
+    </div>
+  </div>
+  <div class="w-full md:w-2/3 md:pl-28">
+    <img src="{% static 'vendors/images/dashboard.png' %}" alt="desktop image">
+  </div>
+</section>
+
+<!-- benefits -->
+<section class="w-screen md:space-y-0 gap-6 text-white bg-dark px-3 md:px-14 py-8 grid grid-cols-1 md:grid-cols-3">
+  <div class="md:pr-24 text-center md:text-left">
+    <h4 class="text-variant-1 md:text-2xl text-xl font-black">
+      $10 instant bonus
+    </h4>
+    <p class="text-xl text-white/80">
+      Get $10 instantly when you make a new deposit towards an active investment.
+  </div>
+  <div class="md:pr-24 text-center md:text-left">
+    <h4 class="text-variant-1 md:text-2xl text-xl font-black">
+      $10 referral commission
+    </h4>
+    <p class="text-xl text-white/80">
+      Referral bonus earned on every referral deposit.
+  </div>
+  <div class="md:pr-24 text-center md:text-left">
+    <h4 class="text-variant-1 md:text-2xl text-xl font-black">
+      $0 withdrawal comission
+    </h4>
+    <p class="text-xl text-white/80">
+      No withdrawal commission or charge on any withdrawal requests to your account.
+  </div>
+</section>
+
+<section class="w-screen px-3 md:px-14 py-32 space-y-5 text-center bg-dark-light">
+  <h4 class="text-xl font-bold">
+    investment portfolios
+  </h4>
+  <h3 class="text-2xl md:text-4xl font-black">
+    Invest in the world's most popular cryptocurrencies.
+  </h3>
+  <p class="text-xl md:px-48">
+    From the top most popular cryptocurrencies to the most obscure ones, we have a portfolio for you. — pick from over a dozen of different routes to a smart investment.
+  </p>
+  <div class="overflow-x-auto md:overflow-none md:grid md:grid-cols-4 flex gap-4 items-start">
+
+    <div class="flex-grow flex-none w-[80%] md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Starter
+        </h4>
+        <strong class="block text-base font-black">14 Days</strong>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $50</span>
+        </p>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $999</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-4">
+          For our starter plan you earn <strong class="font-black">10% ROI Every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      {% if request.user.is_authenticated %}
+      <button @click="open" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+      {% else %}
+      <a href="{% url 'account_login' %}" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="flex-grow flex-none w-[80%] md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Intermediate
+        </h4>
+        <strong class="block text-base font-black">4 Weeks</strong>
+        <p class="text-center mx-auto flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $1000</span>
+        </p>
+        <p class="text-center mx-auto flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $9,999</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-4">
+          For intermediate plan, you earn <strong class="font-black">15% ROI every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      {% if request.user.is_authenticated %}
+      <button @click="open" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+      {% else %}
+      <a href="{% url 'account_login' %}" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="flex-grow flex-none w-[80%] md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Professional
+        </h4>
+        <strong class="block text-base font-black">14 Weeks</strong>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $10,000</span>
+        </p>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $25,000</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-3">
+          For our professional plan you earn upto <strong class="font-black">20% ROI every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      {% if request.user.is_authenticated %}
+      <button @click="open" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+      {% else %}
+      <a href="{% url 'account_login' %}" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="flex-none w-[80%] flex-grow md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Platinum
+        </h4>
+        <strong class="block text-base font-black">12 Months</strong>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $26,000</span>
+        </p>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $&#x221e</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-3">
+          For our Platinium plan you earn as much as <strong class="font-black">25% ROI every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      {% if request.user.is_authenticated %}
+      <button @click="open" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+      {% else %}
+      <a href="{% url 'account_login' %}" class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </a>
+      {% endif %}
+    </div>
+
+  </div>
+</section>
+
+<!-- why invest -->
+<section class="space-y-10 bg-white w-screen px-4 md:px-14 py-24">
+  <h4 class="text-2xl md:text-4xl text-center font-black">Why invest with tranqshare?</h4>
+  <div class="md:flex items-start space-y-6 md:space-y-0 md:space-x-6">
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill="#fff"><path d="M27 38.2v-4a8 8 0 0 1-7.67-8v-7a1 1 0 0 1 1-1h15.34a1 1 0 0 1 1 1v7a8 8 0 0 1-7.68 8v4h2.34A2.67 2.67 0 0 1 34 40.87H22a2.67 2.67 0 0 1 2.67-2.67H27z"/><path d="M17.38 27.53v-8H15.7a1 1 0 0 0-1 1v4.34c0 1.47 1.2 2.66 2.67 2.66zm21.3 0v-8h1.66a1 1 0 0 1 1 1v4.34c0 1.47-1.2 2.66-2.66 2.66z" opacity=".7"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">Award-Winning Platform</h5>
+        <p class="text-xl text-dark/70">
+          Award-winning software recognized and praised by the most respected experts of the industry.
+        </p>
+      </div>
+    </div>
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill-rule="nonzero"><rect width="26" height="2" y="19" fill="#aae2c7" rx=".5" x="15"/><rect width="6" height="6" fill="#fff" rx="1.5" x="15" y="17"/><rect width="26" height="2" y="27" fill="#aae2c7" rx=".5" x="15"/><rect width="6" height="6" x="25" y="25" fill="#fff" rx="1.5"/><rect width="26" height="2" y="35" fill="#aae2c7" rx=".5" x="15"/><rect width="6" height="6" x="35" y="33" fill="#fff" rx="1.5"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">Friendly User Interface</h5>
+        <p class="text-xl text-dark/70">
+          With our user friendly design that fits well into the screen of your devices, you can easily use our software.
+        </p>
+      </div>
+    </div>
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill="#fff"><path d="M15.4 17.5c0-1.16.93-2.1 2.1-2.1h21c1.16 0 2.1.93 2.1 2.1v7.04c0 1.14-.93 2.07-2.07 2.07v-9.1H17.55v9.1a2.15 2.15 0 0 1-2.15-2.15V17.5z" opacity=".6"/><path d="M19.6 19.6h16.8v20a1 1 0 0 1-1 1H20.6a1 1 0 0 1-1-1v-20zm10.1 9.25c-.48-.28-1-.48-1.5-.7a3.3 3.3 0 0 1-.82-.47c-.48-.4-.4-1.05.18-1.3a1.24 1.24 0 0 1 .5-.1 3.52 3.52 0 0 1 1.88.38c.3.14.4.1.5-.22l.28-1.02c.07-.23-.01-.38-.22-.48a4.45 4.45 0 0 0-1.19-.37c-.53-.08-.53-.1-.54-.65 0-.78 0-.78-.76-.78h-.33c-.36 0-.42.07-.43.44v.5c0 .5 0 .5-.46.66-1.1.42-1.8 1.2-1.86 2.45-.07 1.1.5 1.85 1.36 2.4.54.33 1.14.53 1.7.8.23.1.44.2.63.37.55.47.45 1.26-.2 1.55-.36.16-.72.2-1.1.15a4.77 4.77 0 0 1-1.68-.52c-.3-.16-.4-.12-.5.23-.1.3-.17.6-.25.9-.1.4-.07.5.3.7.48.23 1 .36 1.5.44.4.07.42.1.43.52v.6c0 .25.12.4.37.4h.84c.23 0 .35-.14.35-.38v-.8c0-.28.1-.42.36-.5a2.82 2.82 0 0 0 .62-5.19z"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">Convinient Withdrawals</h5>
+        <p class="text-xl text-dark/70">
+          Withdraw your money in an instant using a wide range of available payment systems.
+        </p>
+      </div>
+    </div>
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill="#fff"><path d="M17.7 32.87v-8.74h-1.3a1 1 0 0 0-1 1v13.82l2.25-1.98h16.02a1 1 0 0 0 1-1v-1.1H19.7a2 2 0 0 1-2-2z" opacity=".7"/><path d="M20.85 18.2H39.6a1 1 0 0 1 1 1V36l-3.85-2.96h-15.9a1 1 0 0 1-1-1V19.2a1 1 0 0 1 1-1zm4.93 8.9a1.48 1.48 0 1 0 0-2.97 1.48 1.48 0 0 0 0 2.96zm4.44 0a1.48 1.48 0 1 0 0-2.97 1.48 1.48 0 0 0 0 2.96zm4.45 0a1.48 1.48 0 1 0 0-2.97 1.48 1.48 0 0 0 0 2.96z"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">24/7 Support</h5>
+        <p class="text-xl text-dark/70">
+          A team of professionals speaking your mother tongue are always here to support you.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- what clients are saying -->
+<section class="bg-dark-light w-screen py-24 px-3 md:px-14 space-y-6">
+  <h4 class="text-2xl md:text-4xl text-center font-black">What our investors say?</h4>
+  <p class="text-xl text-dark/80 text-center">Trusted by over 46,000,000 investors around the world.</p>
+  <div class="flex items-start gap-4 overflow-auto w-full flex-none">
+    {% for t in testimonials %}
+    <div class="flex-grow h-full w-[90%] md:w-1/3 flex-none space-y-24 p-6 bg-white shadow-md rounded-sm">
+      <div class="w-full space-y-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-variant-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd" />
+        </svg>
+        <p class="text-base">
+          {{t.comment|truncatechars:125|safe}}
+        </p>
+      </div>
+      <div class="flex items-center justify-between">
+        <h6 class="text-base font-bold">
+          {{t.name}}
+        </h6>
+        <img src="{% static 'vendors/images/favicon.png' %}" alt="logo" class="w-10 h-10 rounded-full">
+      </div>
+    </div>
+    {% empty %}
+    <div class=" w-[90%] md:w-1/3 flex-none space-y-24 p-6 bg-white shadow-md rounded-sm">
+      <div class="w-full space-y-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-variant-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z" clip-rule="evenodd" />
+        </svg>
+        <p class="text-base">
+          What caught my attention about this platform  was the resources available. The video tutorials were very clear and easy to understand.
+        </p>
+      </div>
+      <div class="flex items-center justify-between">
+        <h6 class="text-base font-bold">
+          John Doe
+        </h6>
+        <img src="{% static 'vendors/images/favicon.png' %}" alt="logo" class="w-10 h-10 rounded-full">
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- easy to join -->
+<section class="bg-white w-screen px-3 md:px-14 py-24 md:space-y-10">
+  <h4 class="text-2xl md:text-4xl text-center font-black">It’s easy to get started</h4>
+  <div class="md:flex items-start w-full">
+    <div class="py-6 md:py-0 w-full md:w-1/3 md:space-y-6 flex-col-reverse md:flex-col border-l-2 border-l-dark/70 relative md:border-l-0">
+      <div class="md:hidden w-4 h-4 rounded-full bg-dark border-6 border-dark-light absolute -left-2 top-0"></div>
+      <h4 class="font-bold text-2xl w-full px-6">
+        Sign Up
+      </h4>
+      <div class="hidden md:block w-full border-t-2 border-t-dark/70 relative"><div class="w-4 h-4 absolute -top-2 rounded-full bg-dark border-4 border-dark-60"></div></div>
+      <p class="text-xl font-semibold text-dark/70 px-6 w-full">Create an account for free using your email address</p>
+      <div class="w-full px-4">
+        <a href="{% url 'account_signup' %}" class="w-full block text-center bg-variant-1 text-dark py-3 rounded-sm text-xl hover:scale-105 duration-300 font-bold">
+          Sign Up
+        </a>
+      </div>
+    </div>
+    <div class="py-6 md:py-0 w-full md:w-1/3 md:space-y-6 flex-col-reverse md:flex-col border-l-2 border-l-dark/70 relative md:border-l-0">
+      <div class="md:hidden w-4 h-4 rounded-full bg-dark border-6 border-dark-light absolute -left-2 top-0"></div>
+      <h4 class="font-bold text-2xl w-full px-6">
+        Explore the plans
+      </h4>
+      <div class="hidden md:block w-full border-t-2 border-t-dark/70 relative"><div class="w-4 h-4 absolute -top-2 rounded-full bg-dark border-4 border-dark-60"></div></div>
+      <p class="text-xl font-semibold text-dark/70 px-6 w-full">See what it’s like to invest without putting your money at risk</p>
+      <div class="w-full px-4">
+        <a href="{% url 'plans' %}" class="w-full block text-center bg-variant-1 text-dark py-3 rounded-sm text-xl hover:scale-105 duration-300 font-bold">
+          Explore the plans
+        </a>
+      </div>
+    </div>
+    <div class="flex-grow py-6 md:py-0 w-full md:w-1/3 md:space-y-6 flex-col-reverse md:flex-col relative md:border-l-0">
+      <div class="md:hidden w-4 h-4 rounded-full bg-dark border-6 border-dark-light absolute -left-2 top-0"></div>
+      <h4 class="font-bold text-2xl w-full px-6">
+        Invest & earn profit
+      </h4>
+      <div class="hidden md:block w-full border-t-2 border-t-dark/70 relative"><div class="w-4 h-4 absolute md:-top-2 rounded-full bg-dark border-4 border-dark-60"></div></div>
+      <p class="text-xl font-semibold text-dark/70 px-6 w-full flex-grow">Select an asset and make your money work for you with ease.</p>
+      <div class="w-full px-4">
+        <a href="{% url 'plans' %}" class="w-full block text-center bg-variant-1 text-dark py-3 rounded-sm text-xl hover:scale-105 duration-300 font-bold">
+          Invest & earn profit
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white w-screen px-3 md:px-14 py-24 md:space-y-10">
+  <h4 class="text-2xl md:text-4xl text-center font-black">Ready to get free access to the world of investing?</h4>
+  <p class="text-xl text-dark/60 text-center">Create an account to start using the platform.</p>
+
+  <form id="reg" method="post" class="md:w-3/5 mx-auto w-full space-y-4 overflow-hidden">
+    <div class="md:flex md:items-center md:space-x-4 space-y-4 md:space-y-0">
+      <div class="w-full space-y-1">
+        <label for="email" class="block text-base font-black uppercase">E-mail</label>
+        <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="email" name="email" id="email" placeholder="your@emai.com">
+      </div>
+      <div class="w-full space-y-1">
+        <label for="username" class="block text-base font-black uppercase">Username</label>
+        <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="text" name="username" id="username" placeholder="username">
+      </div>
+      <div class="w-full space-y-1">
+        <label for="#phone" class="block text-base font-black uppercase">Phone</label>
+        <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="tel" name="phone" id="phone" placeholder="+123456789">
+      </div>
+    </div>
+    <div class="md:flex md:items-center md:space-x-4 space-y-4 md:space-y-0">
+      <div class="w-full space-y-1">
+        <label for="#first_name" class="block text-base font-black uppercase">first name</label>
+        <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="text" name="first_name" id="first_name" placeholder="First Name">
+      </div>
+      <div class="w-full space-y-1">
+        <label for="#middle_name" class="block text-base font-black uppercase">middle name</label>
+        <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="text" name="middle_name" id="middle_name" placeholder="Middle Name">
+      </div>
+      <div class="w-full space-y-1">
+        <label for="#last_name" class="block text-base font-black uppercase">Last name</label>
+        <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="text" name="last_name" id="last_name" placeholder="Last Name">
+      </div>
+    </div>
+    <div class="w-full space-y-1">
+      <label for="country" class="block text-base font-black uppercase">Country</label>
+      <div class="relative">
+        <select name="country" class="block appearance-none w-full border-dark/40 placeholder:text-dark/50 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-dark/80" id="grid-state">
+          <option>Select Country</option>
+          {% for c in countries %}
+          <option value="{{c.iso|upper}}">{{c.name|title}}</option>
+          {% endfor %}
+        </select>
+        <!-- <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div> -->
+      </div>
+    </div>
+    <div class="w-full space-y-1">
+      <label for="#password" class="block text-base font-black uppercase">password</label>
+      <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="password" name="password" id="password" placeholder="6+ characters">
+    </div>
+    <div class="w-full space-y-1">
+      <label for="password2" class="block text-base font-black uppercase">confirm password</label>
+      <input class="block w-full py-3 border-dark/40 placeholder:text-dark/50" type="password" name="password2" id="password2" placeholder="confirm password">
+    </div>
+    <div class="flex items-center px-2 py-4">
+      <label class="md:w-2/3 block text-gray-500 font-bold">
+        <input class="mr-2 leading-tight" type="checkbox">
+        <span class="text-sm">
+          I agree to the <a href="{% url 'privacy' %}" class="text-variant-2 cursor-pointer">Terms and Conditions</a> and <a href="{% url 'legals' %}" class="text-variant-2 cursor-pointer">Privacy Policy</a>
+        </span>
+      </label>
+    </div>
+    <button hx-post="{% url 'register' %}" hx-target="#reg" class="w-full py-3 text-xl font-black bg-variant-1 hover:scale-105 duration-300">Sign Up</button>
+    <p class="text-sm w-full text-center">Already have an account? <a href="{% url 'account_login' %}" class="text-variant-2 font-extrabold">Log in</a></p>
+  </form>
+
+  <div class="md:w-3/5 mx-auto w-full space-y-4 py-6">
+    <h4 class="font-black text-xl uppercase text-center">Frequently asked questions</h4>
+    <div class="w-full space-y-3">
+      {% for f in faqs%}
+      <div class="rounded-t-md bg-dark-light overflow-hidden">
+        <div class="justify-between bg-variant-1 text-dark font-bold text-xl py-2 px-6 flex items-center"><strong class="block">{{f.question}}?</strong>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+        <div class="font-semibold text-base py-2 px-6 text-dark/60">
+          <p>{{f.answer|safe}}</p>
+        </div>
+      </div>
+      {% empty %}
+      <div class="rounded-t-md bg-dark-light overflow-hidden">
+        <div class="justify-between bg-variant-1 text-dark font-bold text-xl py-2 px-6 flex items-center"><strong class="block">What does Tranquility Share do?</strong>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
+        <div class="font-semibold text-base py-2 px-6 text-dark/60">
+          <p>We exist with a singular purpose to get everybody rich. We make you rmoney work for you.</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<section class="w-screen text-white md:flex md:items-center">
+  <div class="w-full flex space-x-4 md:w-1/2 bg-dark/70 py-8 px-3 md:px-14 md:justify-center justify-between">
+    <div class="md:w-1/2 space-y-1">
+      <strong class="text-base font-bold block tracking-widest">{{users}}</strong>
+      <span class="block text-base text-white/60">Registered Users</span>
+    </div>
+    <div class="md:w-1/2 space-y-1">
+      <strong class="text-base font-bold block tracking-widest">{{active_users}}+</strong>
+      <span class="block text-base text-white/60">Active Investors Daily</span>
+    </div>
+  </div>
+  <div class="w-full flex md:w-1/2 space-x-4 py-8 bg-dark px-3 md:px-14 md:justify-center justify-between">
+    <div class="md:w-1/2 space-y-1">
+      <strong class="text-base font-bold block tracking-widest">${{monthly}}</strong>
+      <span class="block text-base text-white/60">Monthly investing volume</span>
+    </div>
+    <div class="md:w-1/2 space-y-1">
+      <strong class="text-base font-bold block tracking-widest">${{withdrawn}}</strong>
+      <span class="block text-base text-white/60">Withdrawn each month</span>
+    </div>
+  </div>
+</section>
+{% endblock content %}

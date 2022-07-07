@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Privacy Policy - {{ block.super }}
+{% endblock title %}
+
+
+{% block content %}
+<section class="w-screen px-3 md:px-14 space-y-4 border-b-2 border-b-dark.30">
+  <div class="w-full overflow-x-auto flex items-center space-x-6 justify-between py-14">
+    <h1 class="text-2xl font-black">{{object.title|title}}</h1>
+    <div class="flex items-center gap-6">
+      <a href="{% url 'home' %}" class="text-dark/40 text-xs">Home</a>
+      <a href="javascript:;" class="text-dark text-xs">{{object.title|title}}</a>
+    </div>
+  </div>
+</section>
+<section class="w-screen px-3 md:px-14 space-y-4">
+  <div class="w-full overflow-x-auto flex items-center space-x-6 justify-between py-14">
+    <a href="{% url 'privacy' %}" class="p-2 bg-variant-1 text-dark font-bold">Privacy Policy</a>
+    <a href="{% url 'legals' %}" class="p-2 bg-variant-1 text-dark font-bold">Terms & Use</a>
+    <a href="{% url 'legals' %}" class="p-2 bg-variant-1 text-dark font-bold">Certificate</a>
+  </div>
+</section>
+<section class="w-screen px-3 md:px-14">
+  <div class="w-full border-2 border-dark/30 p-4 text-dark">
+    <span class="text-base font-bold text-dark/40">Updated {{object.created}}</span>
+    <div class="py-8 space-y-3">
+      <h2 class="text-2xl md:text-4xl font-bold">{{object.title|title}}</h2>
+      <div class="text-xl">
+        {{object.content|safe}}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

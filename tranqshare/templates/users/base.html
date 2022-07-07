@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static i18n %}
+{% block title %}
+{% block h_title %}
+
+{% endblock h_title %}
+{{ block.super }}
+{% endblock title %}
+
+{% block header %}
+{% block head %}
+
+{% endblock head %}
+{% endblock header %}
+
+{% block content %}
+<section class="w-full md:flex md:items-start h-screen">
+  <aside class="flex justify-between md:block w-screen md:w-72 bg-dark md:h-screen text-white duration-300">
+    <a class="flex items-center space-x-2 text-base p-4" href="{% url 'home' %}">
+      <img src="{% static 'vendors/images/favicon.png' %}" class="h-10" alt="Logo">
+      <div class="text-variant-2 -space-y-1"><strong class="block text-white">Tranquility</strong> <strong class="block text-variant-1">Shares</strong></div>
+    </a>
+
+    {% if object == request.user %}
+    <div class="flex md:hidden items-center space-x-3 rounded-5xl  pr-3 hover:bg-dark hover:text-white font-bold cursor-pointer duration-300 p-1">
+      <strong class="block">{{request.user.username|truncatechars:5}}</strong>
+      <img src="{% if object.dp %}{{object.dp.url}}{% else %}{% static 'vendors/images/favicon.png' %}{% endif %}" alt="DP covers" class="w-6 h-6 rounded-full border-2 border-variant-light">
+    </div>
+    {% endif %}
+
+    <div class="hidden md:block w-full space-y-0 pt-14">
+      <a href="{% url 'home' %}" class="duration-300 flex space-x-5 text-base font-bold p-4 hover:bg-white/20 hover:border-l-4 border-l-variant-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z" />
+        </svg>
+        <span class="block">Home</span>
+      </a>
+      <a href="{% url 'users:detail' user.username %}" class="mb-4 duration-300 flex space-x-5 text-base font-bold p-4 hover:bg-white/20 hover:border-l-4 hover:border-l-variant-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 block" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z" />
+          <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z" />
+        </svg>
+        <span class="block">Dashboard</span>
+      </a>
+      <a href="javascript:;" @click="open" class="mb-4 duration-300 flex space-x-5 text-base font-bold p-4 hover:bg-white/20 hover:border-l-4 hover:border-l-variant-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+          <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd" />
+        </svg>
+        <span class="block">Deposit</span>
+      </a>
+
+      <div class="border-t-[.75px] border-variant-1/20"></div>
+      {% if not request.user.kyc %}
+      <a href="{% url 'users:verify' %}" class="mb-4 duration-300 flex space-x-5 text-base font-bold p-4 hover:bg-white/20 hover:border-l-4 hover:border-l-variant-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+        <span class="block">Verify</span>
+      </a>
+      {% endif %}
+      <a href="{% url 'users:update' %}" class="mb-4 duration-300 flex space-x-5 text-base font-bold p-4 hover:bg-white/20 hover:border-l-4 hover:border-l-variant-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <span class="block">Settings</span>
+      </a>
+      <a href="{% url 'account_logout' %}" class="mb-4 duration-300 flex space-x-5 text-base font-bold p-4 hover:bg-white/20 hover:border-l-4 hover:border-l-variant-1">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+        <span class="block">Logout</span>
+      </a>
+    </div>
+
+
+  </aside>
+
+
+{% block main %}
+
+{% endblock main %}
+
+</section>
+{% endblock content %}
+
+{% block footer %}
+{% endblock footer %}

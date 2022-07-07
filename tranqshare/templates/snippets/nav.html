@@ -1,0 +1,83 @@
+{% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_language_info_list for LANGUAGES as languages %}
+
+<nav id="nav" class="bg-white w-screen px-3 md:px-14 flex items-center justify-between py-4">
+  <a href="{% url 'home' %}">
+    <img src="{% static 'vendors/images/logo.png' %}" class="h-10" alt="Logo">
+  </a>
+  <div class="flex items-center space-x-3 group">
+    <div @click="toggleOpen" @click.away="toggleClose" class="space-y-1 group w-20 h-min duration-300 relative cursor-pointer ">
+      <div class="flex justify-items-center bg-white items-center space-x-2 mx-auto relative">
+        <img class="fill-current rounded-full w-4 h-4" src="{% static 'vendors/images/flags/jpg/' %}{{ LANGUAGE_CODE|lower }}.jpg" alt="{{ language.code }} flag" />
+        <span class="flex items-center flex-none text-sm pt-1 font-black">{{LANGUAGE_CODE|upper}} <svg id="lang_icon" class="w-4 h-4 pl-1 hover:mt-2 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span>
+        <div id="lang" class="absolute hidden space-y-1 z-30 top-10 w-full duration-500 right-0 bg-white px-2 md:16">
+          {% for language in languages %}
+            <a href="/{{language.code}}{{ request.path|slice:'3:' }}" class="flex items-center text-center space-x-2 hover:text-gray-600 justify-items-center">
+              <img class="fill-current rounded-full w-4 h-4" src="{% static 'vendors/images/flags/jpg/' %}{{ language.code|lower }}.jpg" alt="{{ language.code }} flag" />
+              <span class="hover:text-variant-1 duration-300 flex items-center flex-none text-sm pt-1 font-black">{{language.code|upper}}</span>
+              <!-- <a href="" class="flex items-center space-x-2">
+              <img class="fill-current rounded-full w-4 h-4" src="{% static 'vendors/images/flags/jpg/' %}{{ LANGUAGE_CODE|lower }}.jpg" alt="{{ language.code }} flag" />
+              <span class="flex items-center flex-none text-sm pt-1 font-black">{{LANGUAGE_CODE|upper}} <svg class="w-4 h-4 pl-1 hover:mt-2 duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></span> -->
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    {% if not request.user.is_authenticated %}
+    <a href="{% url 'account_login' %}" class="bg-variant-2 text-white px-3 py-2 font-semibold rounded-sm">
+      LOGIN
+    </a>
+    <a href="{% url 'account_signup' %}" class="bg-variant-1 text-dark px-3 py-2 font-semibold rounded-sm">
+      SIGN UP
+    </a>
+    {% else %}
+    <a href="{% url 'account_signup' %}" class="bg-variant-2 text-white px-3 py-2 font-semibold rounded-sm">
+      {{request.user.username|upper|truncatechars:6}}
+    </a>
+    <a href="{% url 'account_logout' %}" class="uppercase bg-red-600 text-white px-3 py-2 font-semibold rounded-sm">
+      logout
+    </a>
+    {% endif %}
+  </div>
+</nav>
+<div class="w-screen px-3 md:px-14 py-2 bg-dark">
+<!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+  <div class="tradingview-widget-container__widget"></div>
+  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+  {
+  "symbols": [
+    {
+      "proName": "FOREXCOM:SPXUSD",
+      "title": "S&P 500"
+    },
+    {
+      "proName": "FOREXCOM:NSXUSD",
+      "title": "US 100"
+    },
+    {
+      "proName": "FX_IDC:EURUSD",
+      "title": "EUR/USD"
+    },
+    {
+      "proName": "BITSTAMP:BTCUSD",
+      "title": "Bitcoin"
+    },
+    {
+      "proName": "BITSTAMP:ETHUSD",
+      "title": "Ethereum"
+    }
+  ],
+  "showSymbolLogo": true,
+  "colorTheme": "dark",
+  "isTransparent": true,
+  "displayMode": "adaptive",
+  "locale": "en"
+}
+  </script>
+</div>
+<!-- TradingView Widget END -->
+</div>

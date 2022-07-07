@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% load static i18n %}
+
+{% block title %}
+Plans - {{ block.super }}
+{% endblock title %}
+
+{% block content %}
+<section class="w-screen px-3 md:px-14 space-y-4 border-b-2 border-b-dark.30">
+  <div class="w-full overflow-x-auto flex items-center space-x-6 justify-between py-14">
+    <h1 class="text-2xl font-black">Subscription Plans</h1>
+    <div class="flex items-center gap-6">
+      <a href="{% url 'home' %}" class="text-dark/40 text-xs">Home</a>
+      <a href="javascript:;" class="text-dark text-xs">Subscription Plans</a>
+    </div>
+  </div>
+</section>
+<!-- why invest -->
+<section class="space-y-10 bg-white w-screen px-4 md:px-14 py-24">
+  <h4 class="text-2xl md:text-4xl text-center font-black">Why invest with tranqshare?</h4>
+  <div class="md:flex items-start space-y-6 md:space-y-0 md:space-x-6">
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill="#fff"><path d="M27 38.2v-4a8 8 0 0 1-7.67-8v-7a1 1 0 0 1 1-1h15.34a1 1 0 0 1 1 1v7a8 8 0 0 1-7.68 8v4h2.34A2.67 2.67 0 0 1 34 40.87H22a2.67 2.67 0 0 1 2.67-2.67H27z"/><path d="M17.38 27.53v-8H15.7a1 1 0 0 0-1 1v4.34c0 1.47 1.2 2.66 2.67 2.66zm21.3 0v-8h1.66a1 1 0 0 1 1 1v4.34c0 1.47-1.2 2.66-2.66 2.66z" opacity=".7"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">Award-Winning Platform</h5>
+        <p class="text-xl text-dark/70">
+          Award-winning software recognized and praised by the most respected experts of the industry.
+        </p>
+      </div>
+    </div>
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill-rule="nonzero"><rect width="26" height="2" y="19" fill="#aae2c7" rx=".5" x="15"/><rect width="6" height="6" fill="#fff" rx="1.5" x="15" y="17"/><rect width="26" height="2" y="27" fill="#aae2c7" rx=".5" x="15"/><rect width="6" height="6" x="25" y="25" fill="#fff" rx="1.5"/><rect width="26" height="2" y="35" fill="#aae2c7" rx=".5" x="15"/><rect width="6" height="6" x="35" y="33" fill="#fff" rx="1.5"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">Friendly User Interface</h5>
+        <p class="text-xl text-dark/70">
+          With our user friendly design that fits well into the screen of your devices, you can easily use our software.
+        </p>
+      </div>
+    </div>
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill="#fff"><path d="M15.4 17.5c0-1.16.93-2.1 2.1-2.1h21c1.16 0 2.1.93 2.1 2.1v7.04c0 1.14-.93 2.07-2.07 2.07v-9.1H17.55v9.1a2.15 2.15 0 0 1-2.15-2.15V17.5z" opacity=".6"/><path d="M19.6 19.6h16.8v20a1 1 0 0 1-1 1H20.6a1 1 0 0 1-1-1v-20zm10.1 9.25c-.48-.28-1-.48-1.5-.7a3.3 3.3 0 0 1-.82-.47c-.48-.4-.4-1.05.18-1.3a1.24 1.24 0 0 1 .5-.1 3.52 3.52 0 0 1 1.88.38c.3.14.4.1.5-.22l.28-1.02c.07-.23-.01-.38-.22-.48a4.45 4.45 0 0 0-1.19-.37c-.53-.08-.53-.1-.54-.65 0-.78 0-.78-.76-.78h-.33c-.36 0-.42.07-.43.44v.5c0 .5 0 .5-.46.66-1.1.42-1.8 1.2-1.86 2.45-.07 1.1.5 1.85 1.36 2.4.54.33 1.14.53 1.7.8.23.1.44.2.63.37.55.47.45 1.26-.2 1.55-.36.16-.72.2-1.1.15a4.77 4.77 0 0 1-1.68-.52c-.3-.16-.4-.12-.5.23-.1.3-.17.6-.25.9-.1.4-.07.5.3.7.48.23 1 .36 1.5.44.4.07.42.1.43.52v.6c0 .25.12.4.37.4h.84c.23 0 .35-.14.35-.38v-.8c0-.28.1-.42.36-.5a2.82 2.82 0 0 0 .62-5.19z"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">Convinient Withdrawals</h5>
+        <p class="text-xl text-dark/70">
+          Withdraw your money in an instant using a wide range of available payment systems.
+        </p>
+      </div>
+    </div>
+    <div class="md:w-1/4 md:space-y-6 md:space-x-0 space-x-6 flex md:flex-col items-start">
+      <div class="w-[56px] h-[56px]">
+        <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill-rule="evenodd"><circle cx="28" cy="28" r="28" fill="#29b672"/><g fill="#fff"><path d="M17.7 32.87v-8.74h-1.3a1 1 0 0 0-1 1v13.82l2.25-1.98h16.02a1 1 0 0 0 1-1v-1.1H19.7a2 2 0 0 1-2-2z" opacity=".7"/><path d="M20.85 18.2H39.6a1 1 0 0 1 1 1V36l-3.85-2.96h-15.9a1 1 0 0 1-1-1V19.2a1 1 0 0 1 1-1zm4.93 8.9a1.48 1.48 0 1 0 0-2.97 1.48 1.48 0 0 0 0 2.96zm4.44 0a1.48 1.48 0 1 0 0-2.97 1.48 1.48 0 0 0 0 2.96zm4.45 0a1.48 1.48 0 1 0 0-2.97 1.48 1.48 0 0 0 0 2.96z"/></g><circle cx="48" cy="10" r="8" fill="#8ed4b2"/><path fill="#fff" d="M46.87 10.7l3.9-3.9a.5.5 0 0 1 .7 0l.7.72c.2.2.2.5 0 .7l-4.16 4.17a.5.5 0 0 1-.08.1l-.7.7a.5.5 0 0 1-.71 0l-2.83-2.83a.5.5 0 0 1 0-.7l.7-.7c.2-.2.52-.2.7 0l1.76 1.74z"/></svg>
+      </div>
+      <div class="space-y-1">
+        <h5 class="font-bold text-xl">24/7 Support</h5>
+        <p class="text-xl text-dark/70">
+          A team of professionals speaking your mother tongue are always here to support you.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="w-screen px-3 md:px-14 py-32 space-y-5 text-center bg-dark-light">
+  <h4 class="text-xl font-bold">
+    investment portfolios
+  </h4>
+  <h3 class="text-2xl md:text-4xl font-black">
+    Invest in the world's most popular cryptocurrencies.
+  </h3>
+  <p class="text-xl md:px-48">
+    From the top most popular cryptocurrencies to the most obscure ones, we have a portfolio for you. — pick from over a dozen of different routes to a smart investment.
+  </p>
+  <div class="overflow-x-auto md:overflow-none md:grid md:grid-cols-4 flex gap-4 items-start">
+
+    <div class="flex-grow flex-none w-[80%] md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Starter
+        </h4>
+        <strong class="block text-base font-black">14 Days</strong>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $50</span>
+        </p>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $999</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-4">
+          For our starter plan you earn <strong class="font-black">10% ROI Every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      <button class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+    </div>
+
+    <div class="flex-grow flex-none w-[80%] md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Intermediate
+        </h4>
+        <strong class="block text-base font-black">4 Weeks</strong>
+        <p class="text-center mx-auto flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $1000</span>
+        </p>
+        <p class="text-center mx-auto flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $9,999</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-4">
+          For intermediate plan, you earn <strong class="font-black">15% ROI every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      <button class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+    </div>
+
+    <div class="flex-grow flex-none w-[80%] md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Professional
+        </h4>
+        <strong class="block text-base font-black">14 Weeks</strong>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $10,000</span>
+        </p>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $25,000</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-3">
+          For our professional plan you earn upto <strong class="font-black">20% ROI every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      <button class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+    </div>
+
+    <div class="flex-none w-[80%] flex-grow md:w-full bg-white space-y-4 overflow-hidden">
+      <img src="{% static 'vendors/images/plan.jpg' %}" alt="Plan 1">
+      <div class="w-full py-6">
+        <h4 class="text-center text-2xl uppercase font-black">
+          Platinum
+        </h4>
+        <strong class="block text-base font-black">12 Months</strong>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Min Investment — $26,000</span>
+        </p>
+        <p class="text-left flex items-center font-bold text-[16px] space-x-2 selection px-4 pt-5">
+          <svg xmlns="http://www.w3.org/2000/svg" class="block h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+          </svg>
+          <span class="block">Max Investment — $&#x221e</span>
+        </p>
+        <p class="text-base font-semibold pt-6 px-3">
+          For our Platinium plan you earn as much as <strong class="font-black">25% ROI every 24 hours</strong> of your inital investment.
+        </p>
+      </div>
+      <button class="w-full bg-variant-1 py-3 px-12 text-2xl hover:scale-105 duration-300 font-bold">
+        Invest Now
+      </button>
+    </div>
+
+  </div>
+</section>
+{% endblock content %}
