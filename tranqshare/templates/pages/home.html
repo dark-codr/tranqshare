@@ -352,6 +352,7 @@
   <p class="text-xl text-dark/60 text-center">Create an account to start using the platform.</p>
 
   <form id="reg" method="post" class="md:w-3/5 mx-auto w-full space-y-4 overflow-hidden">
+    {% csrf_token %}
     <div class="md:flex md:items-center md:space-x-4 space-y-4 md:space-y-0">
       <div class="w-full space-y-1">
         <label for="email" class="block text-base font-black uppercase">E-mail</label>
