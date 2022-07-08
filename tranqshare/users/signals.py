@@ -88,7 +88,7 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Withdrawal Confirmed", "body": mark_safe(body)})
         user_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Withdrawal Confirmed", "body": mark_safe(body2)})
         plain_email(to_email=instance.user.email, subject="Withdrawal Confirmed", body=user_message)
-        plain_email(to_email="admin@tranqshare.net", subject="Withdrawal Confirmed", body=admin_message)
+        plain_email(to_email="admin@tranqshare.com", subject="Withdrawal Confirmed", body=admin_message)
 
 @receiver(post_save, sender=Deposit)
 def deposit_approve_signal(created, instance, *args, **kwargs):
@@ -137,7 +137,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Deposit Confirmed", "body": mark_safe(body)})
         user_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Deposit Confirmed", "body": mark_safe(body2)})
         plain_email(to_email=instance.user.email, subject="Deposit Failed", body=user_message)
-        plain_email(to_email="admin@tranqshare.net", subject="Deposit Failed", body=admin_message)
+        plain_email(to_email="admin@tranqshare.com", subject="Deposit Failed", body=admin_message)
 
     elif instance.status == Deposit.SUCCESS and not instance.user.first_investment:
         LOGGER.error("Deposit Succeeding")
@@ -184,7 +184,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Deposit Confirmed", "body": mark_safe(body)})
         user_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Deposit Confirmed", "body": mark_safe(body2)})
         plain_email(to_email=instance.user.email, subject="Deposit Confirmed", body=user_message)
-        plain_email(to_email="admin@tranqshare.net", subject="Deposit Confirmed", body=admin_message)
+        plain_email(to_email="admin@tranqshare.com", subject="Deposit Confirmed", body=admin_message)
 
     elif instance.status == Deposit.SUCCESS and instance.user.first_investment:
         LOGGER.error("First Investment Deposit Succeeding")
@@ -266,7 +266,7 @@ def referral_signals(request, user, **kwargs):
     """
 
     admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "New Referral", "body": mark_safe(admin_body)})
-    plain_email(to_email="admin@tranqshare.net", subject="New Referral", body=admin_message)
+    plain_email(to_email="admin@tranqshare.com", subject="New Referral", body=admin_message)
 
     LOGGER.info("Sent new registration email to admin")
 
