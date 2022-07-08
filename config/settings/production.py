@@ -135,9 +135,9 @@ ANYMAIL = {}
 EMAIL_HOST = env("EMAIL_HOST", default="smtp.gmail.com")
 EMAIL_HOST_USER = env("EMAIL_HOST_USER", default='mail@gmail.com')# sendgrid
 EMAIL_HOST_PASSWORD = env("EMAIL_HOST_PASSWORD", default="Paper123.")
-EMAIL_PORT = env("EMAIL_HOST_PORT", default="587")
-# EMAIL_USE_SSL = True
-EMAIL_USE_TLS = True
+EMAIL_PORT = env("EMAIL_HOST_PORT", default="465")
+EMAIL_USE_SSL = True
+# EMAIL_USE_TLS = True
 
 
 # Collectfast
