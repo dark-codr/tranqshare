@@ -28,7 +28,20 @@ def user_post_save_signal(created, instance, *args, **kwargs):
     if created:
         Wallet.objects.get_or_create(user=instance)
         # instance.ref = instance.email.split("@")[0]+str(instance.date_joined.year)
-        LOGGER.info("Sent Registration Email to admin")
+        admin_body = f"""
+        Hello Webmaster,
+        <br>
+        <br>
+        {instance.username.title()} Has just successfully signed up.
+        <br>
+        <br>
+        """
+
+        admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "New Referral", "body": mark_safe(admin_body)})
+        plain_email(to_email="admin@tranqshare.com", subject="New Referral", body=admin_message)
+
+        LOGGER.info("Sent new registration email to admin")
+
 
 @receiver(pre_save, sender=User)
 def user_pre_save_signal(instance, *args, **kwargs):
@@ -255,20 +268,6 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
 def referral_signals(request, user, **kwargs):
     LOGGER.info("Creating Referral")
     referrer_id = request.session.get("ref_profile")
-
-    admin_body = f"""
-    Hello Webmaster,
-    <br>
-    <br>
-    {user.username.title()} Has just successfully signed up.
-    <br>
-    <br>
-    """
-
-    admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "New Referral", "body": mark_safe(admin_body)})
-    plain_email(to_email="admin@tranqshare.com", subject="New Referral", body=admin_message)
-
-    LOGGER.info("Sent new registration email to admin")
 
     if referrer_id is not None:
         recommended_by_user = User.objects.get(id=referrer_id)
