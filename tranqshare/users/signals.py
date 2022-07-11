@@ -321,7 +321,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             Hello {instance.user.username.title()},
             <br>
             <br>
-            Your referrer master {referrer} has just been awarded a bonus of {profit}
+            This is to notify you that your deposit has been confirmed and also your referrer master {referrer} has been awarded a bonus of {profit}
             <br>
             Date: {datetime.date.today()}
             <br>
