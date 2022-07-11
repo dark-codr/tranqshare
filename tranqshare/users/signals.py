@@ -72,6 +72,21 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "New Withdrawal Request", "body": mark_safe(depo)})
         plain_email(to_email="admin@tranqshare.com", subject="New Withdrawal Request", body=admin_message)
 
+        sender = f"""
+        Hello {instance.user.username},
+        <br>
+        <br>
+        You have made a Withdrawal request
+        <br>
+        <br>
+        ensure you complete your withdrawal request by inputing your wallet address to withraw into.
+        <br>
+        <br>
+        """
+
+        sender_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Pending Deposit Request", "body": mark_safe(sender)})
+        plain_email(to_email="admin@tranqshare.com", subject="Pending Deposit Request", body=sender_message)
+
     if instance.status == Withdraw.FAILED:
         TransactionHistory.objects.filter(uuid=instance.uuid).update(
             status= TransactionHistory.FAILED,
