@@ -76,10 +76,10 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         Hello {instance.user.username},
         <br>
         <br>
-        You have made a Withdrawal request
+        You have made a Withdrawal request for {instance.amount}
         <br>
         <br>
-        ensure you complete your withdrawal request by inputing your wallet address to withraw into.
+        kindly ensure to complete your withdrawal request by providing your wallet address for the transaction.
         <br>
         <br>
         """
