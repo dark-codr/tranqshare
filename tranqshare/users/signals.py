@@ -313,7 +313,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             <br>
             """
             admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Deposit Confirmed", "body": mark_safe(body)})
-            plain_email(to_email=instance.user.email, subject="Referral Bonus", body=user_message)
+            plain_email(to_email=referrer.email, subject="Referral Bonus", body=admin_message)
 
 
             body2 = f"""
@@ -330,7 +330,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             """
 
             user_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Deposit Confirmed", "body": mark_safe(body2)})
-            plain_email(to_email=referrer.email, subject="Referral Bonus", body=admin_message)
+            plain_email(to_email=instance.user.email, subject="Referral Bonus", body=user_message)
 
 
 
