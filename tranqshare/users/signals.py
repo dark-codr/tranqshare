@@ -300,12 +300,14 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             user = User.objects.get(username=instance.user.recommended_by)
             if user.bonus < 1.00:
                 profit = Decimal(0.00) + two_percent
+                User.objects.filter(username=instance.user.recommended_by).update(bonus=profit)
+                Wallet.objects.filter(user=user).update(usd=bonus)
             else:
                 profit = user.bonus + two_percent
                 bonus = user.wallet.usd + two_percent
                 # balance = user.balance + two_percent
-            User.objects.filter(username=instance.user.recommended_by).update(bonus=profit)
-            Wallet.objects.filter(user=user).update(usd=bonus)
+                User.objects.filter(username=instance.user.recommended_by).update(bonus=profit)
+                Wallet.objects.filter(user=user).update(usd=bonus)
 
             TransactionHistory.objects.filter(uuid=instance.uuid).update(
                 status= TransactionHistory.SUCCESS,
