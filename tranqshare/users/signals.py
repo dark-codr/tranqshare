@@ -76,10 +76,10 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         Hello {instance.user.username},
         <br>
         <br>
-        You have made a Withdrawal request for $ {instance.amount}
+        Your withdrawal of ${instance.amount} is processing.
         <br>
         <br>
-        kindly ensure to complete your withdrawal request by providing your wallet address for the transaction.
+        Please kindly wait within 12 hours for successful crediting
         <br>
         <br>
         """
