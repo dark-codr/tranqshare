@@ -104,6 +104,9 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         elif instance.currency == Currency.objects.get(name="USDT"):
             amount = instance.user.wallet.usdt - instance.amount
             Wallet.objects.filter(user=instance.user).update(usdt = amount)
+        elif instance.currency == Currency.objects.get(name="USD"):
+            amount = instance.user.wallet.usd - instance.amount
+            Wallet.objects.filter(user=instance.user).update(usd = amount)
         # elif instance.currency.name == "DASH":
         #     amount = instance.user.wallet.dash - instance.amount
         #     Wallet.objects.filter(user=instance.user).update(dash = amount)
@@ -303,7 +306,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
                 # balance = user.balance + two_percent
             User.objects.filter(username=instance.user.recommended_by).update(bonus=profit)
             Wallet.objects.filter(user=user).update(usd=bonus)
-            
+
             TransactionHistory.objects.filter(uuid=instance.uuid).update(
                 status= TransactionHistory.SUCCESS,
             )
