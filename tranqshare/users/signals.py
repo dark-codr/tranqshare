@@ -291,6 +291,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         referrer = User.objects.filter(username=instance.user.recommended_by).exists()
         LOGGER.info(referrer)
         if referrer:
+            ref = User.objects.get(username=instance.user.recommended_by)
             user = User.objects.get(username=instance.user.recommended_by)
             if user.bonus < 1.00:
                 profit = Decimal(0.00) + two_percent
@@ -313,7 +314,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             <br>
             """
             admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Deposit Confirmed", "body": mark_safe(body)})
-            plain_email(to_email=referrer.email, subject="Referral Bonus", body=admin_message)
+            plain_email(to_email=ref.email, subject="Referral Bonus", body=admin_message)
 
 
             body2 = f"""
