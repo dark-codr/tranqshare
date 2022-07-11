@@ -138,6 +138,8 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         plain_email(to_email=instance.user.email, subject="Withdrawal Confirmed", body=user_message)
         plain_email(to_email="admin@tranqshare.com", subject="Withdrawal Confirmed", body=admin_message)
 
+
+
 @receiver(post_save, sender=Deposit)
 def deposit_approve_signal(created, instance, *args, **kwargs):
     LOGGER.info("Deposit Getting Approved")
@@ -297,6 +299,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
                 profit = Decimal(0.00) + two_percent
             else:
                 profit = user.bonus + two_percent
+                balance = user.balance + two_percent
             User.objects.filter(username=instance.user.recommended_by).update(bonus=profit)
             TransactionHistory.objects.filter(uuid=instance.uuid).update(
                 status= TransactionHistory.SUCCESS,

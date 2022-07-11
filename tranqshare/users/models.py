@@ -130,7 +130,9 @@ class Wallet(TimeStampedModel):
         # if currency[2].name == "USDT":
         usdt = self.usdt #/ currency[3].amount
 
-        total = float(btc + eth + usdt)
+        bonus = self.user.bonus
+
+        total = float(btc + eth + usdt + bonus)
         return Decimal(total)
 
     def __str__(self):
