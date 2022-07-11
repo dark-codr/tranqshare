@@ -114,6 +114,7 @@ class User(AbstractUser):
 
 class Wallet(TimeStampedModel):
     user = OneToOneField(User, on_delete=CASCADE, related_name=_("wallet"))
+    usd = DecimalField(decimal_places=5, max_digits=20, default=0.00, blank=False)
     btc = DecimalField(decimal_places=5, max_digits=20, default=0.00, blank=False)
     eth = DecimalField(decimal_places=5, max_digits=20, default=0.00, blank=False)
     usdt = DecimalField(decimal_places=5, max_digits=20, default=0.00, blank=False)
@@ -130,7 +131,7 @@ class Wallet(TimeStampedModel):
         # if currency[2].name == "USDT":
         usdt = self.usdt #/ currency[3].amount
 
-        bonus = self.user.bonus
+        bonus = self.usd
 
         total = float(btc + eth + usdt + bonus)
         return Decimal(total)

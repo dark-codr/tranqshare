@@ -37,7 +37,7 @@
 
     <div class="shadow-md p-3 w-64 flex-none md:w-1/4 rounded-md border-2 duration-300 bg-white border-dark/30 cursor-pointer hover:border-variant-2 text-dark">
       <h3 class="text-2xl font-bold flex items-center">
-      <span class="text-base font-black pl-4">$ BONUS</span>
+      <span class="text-base font-black pl-4">$ TOTAL BONUS</span>
       </h3>
       <h2 class="md:text-5xl font-black">$ {{object.bonus|floatformat:2}}</h2>
       <strong class="text-xs font-black text-variant-2/40">LAST INVESTMENT DATE:{{request.user.wallet.invested_date|date:"m Y"}}</strong>
@@ -179,9 +179,10 @@
         <label class="block font-black text-sm uppercase" for="currency">Currency</label>
         <select hx-get="{% url 'get_currency' %}" hx-trigger="change delay:1s" hx-target="#crror" hx-swap="innerHTML" name="currency" class="w-full" id="currency">
           <option value="">Choose Currency</option>
-          <option value="BTC">Bitcoin</option>
-          <option value="ETH">Ethereum</option>
+          <option value="BTC">BITCOIN</option>
+          <option value="ETH">ETHEREUM</option>
           <option value="USDT">USDT</option>
+          <option value="USD">BONUS</option>
         </select>
       </div>
       <div id="amount" class="flex-col w-full">
