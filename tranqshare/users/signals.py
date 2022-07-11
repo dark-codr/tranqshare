@@ -61,7 +61,7 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         <br>
         User: {instance.user.username.title()} - {instance.user.email}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         You have to confirm the witdrawal request from the admin panel
@@ -76,7 +76,7 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         Hello {instance.user.username},
         <br>
         <br>
-        You have made a Withdrawal request for {instance.amount}
+        You have made a Withdrawal request for $ {instance.amount}
         <br>
         <br>
         kindly ensure to complete your withdrawal request by providing your wallet address for the transaction.
@@ -119,7 +119,7 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         <br>
         User: {instance.user.username.title()} - {instance.user.email}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         """
@@ -131,7 +131,7 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         <br>
         Date: {datetime.date.today()}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         """
@@ -156,7 +156,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         <br>
         User: {instance.user.username.title()} - {instance.user.email}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         You have to confirm the deposit request from the admin panel
@@ -205,7 +205,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         <br>
         User: {instance.user.username.title()} - {instance.user.email}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         """
@@ -217,7 +217,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         <br>
         Date: {datetime.date.today()}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         """
@@ -252,7 +252,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         <br>
         User: {instance.user.username.title()} - {instance.user.email}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         """
@@ -264,7 +264,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         <br>
         Date: {datetime.date.today()}
         <br>
-        Amount: {instance.amount}
+        Amount: $ {instance.amount}
         <br>
         <br>
         """
@@ -318,7 +318,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             <br>
             User: {instance.user.username.title()} - {instance.user.email}
             <br>
-            Deposit Amount: {instance.amount}
+            Deposit Amount: $ {instance.amount}
             <br>
             <br>
             """
@@ -334,7 +334,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             <br>
             Date: {datetime.date.today()}
             <br>
-            Deposited Amount: {instance.amount}
+            Deposited Amount: $ {instance.amount}
             <br>
             <br>
             """
