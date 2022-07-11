@@ -52,6 +52,26 @@ def user_pre_save_signal(instance, *args, **kwargs):
 
 @receiver(post_save, sender=Withdraw)
 def withdraw_approve_signal(created, instance, *args, **kwargs):
+    if created:
+        depo = f"""
+        Hello Webmaster,
+        <br>
+        <br>
+        You have new Withdrawal request
+        <br>
+        User: {instance.user.username.title()} - {instance.user.email}
+        <br>
+        Amount: {instance.amount}
+        <br>
+        <br>
+        You have to confirm the witdrawal request from the admin panel
+        <br>
+        <br>
+        """
+
+        admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "New Withdrawal Request", "body": mark_safe(depo)})
+        plain_email(to_email="admin@tranqshare.com", subject="New Withdrawal Request", body=admin_message)
+
     if instance.status == Withdraw.FAILED:
         TransactionHistory.objects.filter(uuid=instance.uuid).update(
             status= TransactionHistory.FAILED,
@@ -107,6 +127,26 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
 def deposit_approve_signal(created, instance, *args, **kwargs):
     LOGGER.info("Deposit Getting Approved")
     User.objects.filter(username=instance.user.username, can_withdraw=True).update(can_withdraw=False)
+    if created:
+        depo = f"""
+        Hello Webmaster,
+        <br>
+        <br>
+        You have new Deposit request
+        <br>
+        User: {instance.user.username.title()} - {instance.user.email}
+        <br>
+        Amount: {instance.amount}
+        <br>
+        <br>
+        You have to confirm the deposit request from the admin panel
+        <br>
+        <br>
+        """
+
+        admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "New Deposit", "body": mark_safe(depo)})
+        plain_email(to_email="admin@tranqshare.com", subject="New Deposit", body=admin_message)
+
     if instance.status == Deposit.FAILED:
         LOGGER.error("Deposit Failing")
         User.objects.filter(username=instance.user.username, first_investment=True).update(has_invested = False, can_withdraw=False, first_investment=False)
@@ -286,7 +326,7 @@ def referral_signals(request, user, **kwargs):
         <strong>NEW USER: {new_user.username.title()}</strong>
         <br>
         <br>
-        Be informed that upon their initial investment capital, you will earn <strong>2%</strong> from that investment, which shall be added to your referral bonus.
+        Be informed that upon their initial investment capital, you will earn <strong>10%</strong> from that investment, which shall be added to your referral bonus.
         <br>
         <br>
         """
@@ -298,7 +338,7 @@ def referral_signals(request, user, **kwargs):
         Your have successfully signed up with the referral code: {recommended_by_user.ref.upper()}
         <br>
         <br>
-        Be informed that upon your initial investment capital, your referrer will earn <strong>2%</strong> from your investment.
+        Be informed that upon your initial investment capital, your referrer will earn <strong>10%</strong> from your investment.
         <br>
         <br>
         """
