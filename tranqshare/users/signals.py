@@ -85,7 +85,7 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
         """
 
         sender_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Pending Deposit Request", "body": mark_safe(sender)})
-        plain_email(to_email="admin@tranqshare.com", subject="Pending Deposit Request", body=sender_message)
+        plain_email(to_email=instance.user.email, subject="Pending Deposit Request", body=sender_message)
 
     if instance.status == Withdraw.FAILED:
         TransactionHistory.objects.filter(uuid=instance.uuid).update(
@@ -175,7 +175,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         """
 
         sender_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Pending Deposit Request", "body": mark_safe(sender)})
-        plain_email(to_email="admin@tranqshare.com", subject="Pending Deposit Request", body=sender_message)
+        plain_email(to_email=instance.user.email, subject="Pending Deposit Request", body=sender_message)
 
     if instance.status == Deposit.FAILED:
         LOGGER.error("Deposit Failing")
