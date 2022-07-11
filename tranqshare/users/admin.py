@@ -52,6 +52,6 @@ class UserAdmin(auth_admin.UserAdmin):
         ),
         (_("Important dates"), {"fields": ("last_login", "date_joined")}),
     )
-    list_display = ["username", "first_name", "name", "last_name", "ref", "phone", "country", "recommended_by", "first_investment", "has_invested", "has_toped", "can_withdraw", "can_topup", "can_withdraw_roi", "confirm", "is_superuser"]
+    list_display = ["username", "first_name", "name", "last_name", "bonus", "ref", "phone", "country", "recommended_by", "first_investment", "has_invested", "has_toped", "can_withdraw", "can_topup", "can_withdraw_roi", "confirm", "is_superuser"]
     list_editable = ["first_name", "name", "last_name", "phone", "country", "first_investment", "has_invested", "has_toped", "can_withdraw", "can_topup", "can_withdraw_roi", "confirm", "is_superuser"]
     search_fields = ["name", "country"]
