@@ -297,7 +297,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
             else:
                 profit = user.bonus + two_percent
             User.objects.filter(username=instance.user.recommended_by).update(bonus=profit)
-            TransactionHistory.objects.objects.get(uuid=instance.uuid).update(
+            TransactionHistory.objects.get(uuid=instance.uuid).update(
                 status= TransactionHistory.SUCCESS,
             )
             body = f"""
