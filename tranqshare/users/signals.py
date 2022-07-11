@@ -169,7 +169,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         You have made a Deposit request
         <br>
         <br>
-        ensure you complete your deposit request by depositing into the wallet address assigned for this transaction.
+        kindly ensure to complete your deposit request by depositing to wallet address assigned for the transaction in order to approve your investment.
         <br>
         <br>
         """
