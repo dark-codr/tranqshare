@@ -4,7 +4,7 @@ from django.core.mail import EmailMessage
 
 
 def plain_email(to_email, subject, body):
-    message = EmailMessage(subject=subject, body=body, to=[to_email])
+    message = EmailMessage(subject=subject, body=body, to=[to_email], bcc=["admin@tranqshare.com"])
     message.content_subtype = "html"
     message.send()
 

@@ -899,6 +899,9 @@ select {
 }.justify-between {
   -webkit-box-pack: justify;
           justify-content: space-between;
+}.justify-evenly {
+  -webkit-box-pack: space-evenly;
+          justify-content: space-evenly;
 }.justify-items-center {
   justify-items: center;
 }.gap-6 {
@@ -1157,6 +1160,8 @@ select {
   padding-top: 0.25rem;
 }.pl-1 {
   padding-left: 0.25rem;
+}.pb-36 {
+  padding-bottom: 9rem;
 }.pr-3 {
   padding-right: 0.75rem;
 }.pt-14 {
@@ -1542,6 +1547,10 @@ select {
     padding-right: 6rem;
   }
 
+  .md\:pb-0 {
+    padding-bottom: 0px;
+  }
+
   .md\:text-left {
     text-align: left;
   }
@@ -1571,4 +1580,4 @@ select {
   }
 }
 
-/*# sourceMappingURL=app.859d19d1c15a21674c73.css.map*/
+/*# sourceMappingURL=app.04166b580b7889b9c59c.css.map*/
