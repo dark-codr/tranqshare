@@ -166,7 +166,7 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         Hello {instance.user.username},
         <br>
         <br>
-        You have made a Deposit request
+        You have made a pending Deposit of ${instance.amount}
         <br>
         <br>
         kindly ensure to complete your deposit request by depositing to wallet address assigned for the transaction in order to approve your investment.
