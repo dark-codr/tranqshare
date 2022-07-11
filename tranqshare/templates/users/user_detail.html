@@ -23,7 +23,9 @@
 
   <section class="flex gap-4 w-full flex-none pt-6 text-dark/30 text-2xl font-bold overflow-auto">
     <div class="shadow-md p-3 w-64 flex-none md:w-1/4 rounded-md border-2 duration-300 bg-white border-dark/30 cursor-pointer hover:border-variant-2 text-dark">
-      <h3 class="text-2xl font-bold flex items-center justify-between"><span class="text-base font-black pl-4">$ Balance</span>{% if request.user.can_withdraw_roi %}<button @click="wdropen" class="text-xs rounded-md hover:scale-105 duration-300 hover:shadow-md p-3 bg-variant-2 text-white uppercase">withdraw</button>{% endif %}</h3>
+      <h3 class="text-2xl font-bold flex items-center justify-between"><span class="text-base font-black pl-4">$ Balance</span>
+        <button @click="wdropen" class="text-xs rounded-md hover:scale-105 duration-300 hover:shadow-md p-3 bg-variant-2 text-white uppercase">withdraw</button>
+      </h3>
       <h2 class="md:text-4xl font-black">$ {{request.user.wallet.total_asset|floatformat:2}}</h2>
       <strong class="text-xs font-black text-variant-2/40">LAST INVESTMENT DATE:{{request.user.wallet.invested_date|date:"m Y"}}</strong>
     </div>
