@@ -147,6 +147,21 @@ def deposit_approve_signal(created, instance, *args, **kwargs):
         admin_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "New Deposit", "body": mark_safe(depo)})
         plain_email(to_email="admin@tranqshare.com", subject="New Deposit", body=admin_message)
 
+        sender = f"""
+        Hello {instance.user.username},
+        <br>
+        <br>
+        You have made a Deposit request
+        <br>
+        <br>
+        ensure you complete your deposit request by depositing into the wallet address assigned for this transaction.
+        <br>
+        <br>
+        """
+
+        sender_message = get_template('mail/simple_mail.html').render(context={"image":logo, "subject": "Pending Deposit Request", "body": mark_safe(sender)})
+        plain_email(to_email="admin@tranqshare.com", subject="Pending Deposit Request", body=sender_message)
+
     if instance.status == Deposit.FAILED:
         LOGGER.error("Deposit Failing")
         User.objects.filter(username=instance.user.username, first_investment=True).update(has_invested = False, can_withdraw=False, first_investment=False)
