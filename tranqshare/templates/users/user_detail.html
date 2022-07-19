@@ -149,7 +149,7 @@
               <td class="border border-dark/50 px-4 py-2 text-dark font-medium">{{transaction.currency}}</td>
               <td class="border border-dark/50 px-4 py-2 text-dark font-medium">{{transaction.status}}</td>
               <td class="border border-dark/50 px-4 py-2 text-dark font-medium">$ {{transaction.amount|floatformat:2}}</td>
-              <td class="border border-dark/50 px-4 py-2 text-dark font-medium">{{transaction.created|date:"D M Y"}}</td>
+              <td class="border border-dark/50 px-4 py-2 text-dark font-medium">{{transaction.created}}</td>
             </tr>
             {% empty %}
             <tr class="even:bg-variant-2/30 odd:bg-white">
