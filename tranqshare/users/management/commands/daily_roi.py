@@ -23,7 +23,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         users = User.objects.all()
-        trade_open = TradeOpen.objects.filter(id=1,open=True).exists()
+        trade_open = True #TradeOpen.objects.filter(id=1,open=True).exists()
         for u in users:
             if u.invested:
                 if u.wallet.total_asset >= 999 and u.wallet.total_asset < 9999:
