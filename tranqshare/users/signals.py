@@ -146,7 +146,7 @@ def withdraw_approve_signal(created, instance, *args, **kwargs):
 @receiver(post_save, sender=Deposit)
 def deposit_approve_signal(created, instance, *args, **kwargs):
     LOGGER.info("Deposit Getting Approved")
-    User.objects.filter(username=instance.user.username, can_withdraw=True).update(can_withdraw=False, invested=True)
+    User.objects.filter(username=instance.user.username).update(can_withdraw=False, invested=True)
     if created:
         depo = f"""
         Hello Webmaster,
