@@ -73,6 +73,7 @@ class User(AbstractUser):
 
     first_investment = BooleanField(default=True)
     has_invested = BooleanField(default=False)
+    invested = BooleanField(default=False)
     has_toped = BooleanField(default=False)
     can_withdraw = BooleanField(default=False)
     can_topup = BooleanField(default=False)

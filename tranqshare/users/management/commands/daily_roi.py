@@ -7,8 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 # from requests_html import HTMLSession
 from tranqshare.utils.logger import LOGGER
-from tranqshare.users.models import TradeOpen
-from tranqshare.users.models import TransactionHistory, User
+from tranqshare.users.models import TradeOpen, TransactionHistory, User
 
 class Command(BaseCommand):
     """This command updates a users Daily ROI depending
@@ -26,24 +25,83 @@ class Command(BaseCommand):
         users = User.objects.all()
         trade_open = TradeOpen.objects.filter(id=1,open=True).exists()
         for u in users:
-            if u.wallet.invested_date:
-                three_months = u.wallet.invested_date + datetime.timedelta(weeks=12)
-                if trade_open and u.wallet.invested_date and u.wallet.invested_date <= three_months :
-                    # td = u.wallet.invested_date + datetime.timedelta(days=90)
-                    asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
-                    roi =  Decimal(asset)  * Decimal(0.015)
-                    TransactionHistory.objects.create(
-                        user=u,
-                        currency="BTC",
-                        transaction_type= TransactionHistory.ROI,
-                        status= TransactionHistory.SUCCESS,
-                        amount= roi,
-                    )
-                    u_roi = u.roi + roi
-                    User.objects.filter(username=u.username).update(roi=u_roi)
+            if u.invested:
+                if u.wallet.total_asset >= 999 and u.wallet.total_asset < 9999:
+                    duration = u.invested_date + datetime.timedelta(weeks=4)
+                    if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
+                        # td = u.wallet.invested_date + datetime.timedelta(days=90)
+                        asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
+                        roi =  Decimal(asset)  * Decimal(0.15)
+                        TransactionHistory.objects.create(
+                            user=u,
+                            currency=4,
+                            transaction_type= TransactionHistory.ROI,
+                            status= TransactionHistory.SUCCESS,
+                            amount= roi,
+                        )
+                        u_roi = u.roi + roi
+                        User.objects.filter(username=u.username).update(roi=u_roi)
 
-                    LOGGER.success(f"{u.username.title()} Asset:{asset} ROI:{Decimal(roi)}")
+                        LOGGER.success(f"{u.username.title()} Asset:{asset} ROI:{Decimal(roi)}")
+                    else:
+                        LOGGER.error(f"{u.username.title()} Trade week is closed")
+                elif u.wallet.total_asset >= 10000 and u.wallet.total_asset <= 25000:
+                    duration = u.invested_date + datetime.timedelta(weeks=14)
+                    if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
+                        # td = u.wallet.invested_date + datetime.timedelta(days=90)
+                        asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
+                        roi =  Decimal(asset)  * Decimal(0.20)
+                        TransactionHistory.objects.create(
+                            user=u,
+                            currency=4,
+                            transaction_type= TransactionHistory.ROI,
+                            status= TransactionHistory.SUCCESS,
+                            amount= roi,
+                        )
+                        u_roi = u.roi + roi
+                        User.objects.filter(username=u.username).update(roi=u_roi)
+
+                        LOGGER.success(f"{u.username.title()} Asset:{asset} ROI:{Decimal(roi)}")
+                    else:
+                        LOGGER.error(f"{u.username.title()} Trade week is closed")
+                elif u.wallet.total_asset > 25000 and u.wallet.total_asset <= 1000000000000:
+                    duration = u.invested_date + datetime.timedelta(months=12)
+                    if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
+                        # td = u.wallet.invested_date + datetime.timedelta(days=90)
+                        asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
+                        roi =  Decimal(asset)  * Decimal(0.25)
+                        TransactionHistory.objects.create(
+                            user=u,
+                            currency=4,
+                            transaction_type= TransactionHistory.ROI,
+                            status= TransactionHistory.SUCCESS,
+                            amount= roi,
+                        )
+                        u_roi = u.roi + roi
+                        User.objects.filter(username=u.username).update(roi=u_roi)
+
+                        LOGGER.success(f"{u.username.title()} Asset:{asset} ROI:{Decimal(roi)}")
+                    else:
+                        LOGGER.error(f"{u.username.title()} Trade week is closed")
                 else:
-                    LOGGER.error(f"{u.username.title()} Trade week is closed")
+                    duration = u.invested_date + datetime.timedelta(months=2)
+                    if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
+                        # td = u.wallet.invested_date + datetime.timedelta(days=90)
+                        asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
+                        roi =  Decimal(asset)  * Decimal(0.10)
+                        TransactionHistory.objects.create(
+                            user=u,
+                            currency=4,
+                            transaction_type= TransactionHistory.ROI,
+                            status= TransactionHistory.SUCCESS,
+                            amount= roi,
+                        )
+                        u_roi = u.roi + roi
+                        User.objects.filter(username=u.username).update(roi=u_roi)
+
+                        LOGGER.success(f"{u.username.title()} Asset:{asset} ROI:{Decimal(roi)}")
+                    else:
+                        LOGGER.error(f"{u.username.title()} Trade week is closed")
+
 
         self.stdout.write("Daily ROI Retrieved Successfully.")
