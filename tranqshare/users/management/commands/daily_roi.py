@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 # from requests_html import HTMLSession
 from tranqshare.utils.logger import LOGGER
-from tranqshare.users.models import TradeOpen, TransactionHistory, User, Currency
+from tranqshare.users.models import TradeOpen, TransactionHistory, User, Currency, Wallet
 
 class Command(BaseCommand):
     """This command updates a users Daily ROI depending
@@ -33,6 +33,8 @@ class Command(BaseCommand):
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.15)
+                        amount = u.wallet.usdt + roi
+                        Wallet.objects.filter(user=u).update(usdt = amount)
                         TransactionHistory.objects.create(
                             uuid=f"ROI-{dt}-{u.id}",
                             user=u,
@@ -53,6 +55,8 @@ class Command(BaseCommand):
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.20)
+                        amount = u.wallet.usdt + roi
+                        Wallet.objects.filter(user=u).update(usdt = amount)
                         TransactionHistory.objects.create(
                             uuid=f"ROI-{dt}-{u.id}",
                             user=u,
@@ -73,6 +77,8 @@ class Command(BaseCommand):
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.25)
+                        amount = u.wallet.usdt + roi
+                        Wallet.objects.filter(user=u).update(usdt = amount)
                         TransactionHistory.objects.create(
                             uuid=f"ROI-{dt}-{u.id}",
                             user=u,
@@ -93,6 +99,8 @@ class Command(BaseCommand):
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.10)
+                        amount = u.wallet.usdt + roi
+                        Wallet.objects.filter(user=u).update(usdt = amount)
                         TransactionHistory.objects.create(
                             uuid=f"ROI-{dt}-{u.id}",
                             user=u,
