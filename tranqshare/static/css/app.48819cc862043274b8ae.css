@@ -992,12 +992,12 @@ select {
   border-radius: 0.125rem;
 }.rounded {
   border-radius: 0.25rem;
+}.rounded-md {
+  border-radius: 0.375rem;
 }.rounded-full {
   border-radius: 9999px;
 }.rounded-2xl {
   border-radius: 1rem;
-}.rounded-md {
-  border-radius: 0.375rem;
 }.rounded-t-md {
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
@@ -1080,6 +1080,9 @@ select {
 }.bg-dark-light {
   --tw-bg-opacity: 1;
   background-color: rgb(237 238 238 / var(--tw-bg-opacity));
+}.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }.bg-red-600 {
   --tw-bg-opacity: 1;
   background-color: rgb(220 38 38 / var(--tw-bg-opacity));
@@ -1601,4 +1604,4 @@ select {
   }
 }
 
-/*# sourceMappingURL=app.fef3786e2124e8b370d3.css.map*/
+/*# sourceMappingURL=app.48819cc862043274b8ae.css.map*/

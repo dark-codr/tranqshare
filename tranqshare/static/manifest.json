@@ -1,18 +1,18 @@
 {
-  "app.css": "/static/css/app.fef3786e2124e8b370d3.css",
-  "app.js": "/static/js/app.2aff501c.js",
+  "app.css": "/static/css/app.48819cc862043274b8ae.css",
+  "app.js": "/static/js/app.82e107d3.js",
   "app2.js": "/static/js/app2.4caf63c5.js",
-  "css/app.fef3786e2124e8b370d3.css.map": "/static/css/app.fef3786e2124e8b370d3.css.map",
+  "css/app.48819cc862043274b8ae.css.map": "/static/css/app.48819cc862043274b8ae.css.map",
   "entrypoints": {
     "app": {
       "assets": {
         "js": [
           "/static/js/runtime.b114caee.js",
           "/static/js/812.66248615.js",
-          "/static/js/app.2aff501c.js"
+          "/static/js/app.82e107d3.js"
         ],
         "css": [
-          "/static/css/app.fef3786e2124e8b370d3.css"
+          "/static/css/app.48819cc862043274b8ae.css"
         ]
       }
     },
@@ -28,7 +28,7 @@
   "frontend/vendors/images/sample.jpg": "/static/frontend/vendors/images/sample.jpg",
   "js/812.66248615.js": "/static/js/812.66248615.js",
   "js/812.66248615.js.map": "/static/js/812.66248615.js.map",
-  "js/app.2aff501c.js.map": "/static/js/app.2aff501c.js.map",
+  "js/app.82e107d3.js.map": "/static/js/app.82e107d3.js.map",
   "js/app2.4caf63c5.js.map": "/static/js/app2.4caf63c5.js.map",
   "js/runtime.b114caee.js.map": "/static/js/runtime.b114caee.js.map",
   "runtime.js": "/static/js/runtime.b114caee.js",
