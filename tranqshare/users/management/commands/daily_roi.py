@@ -34,7 +34,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.15)
                         TransactionHistory.objects.create(
-                            uuid=f"ROI-{dt}",
+                            uuid=f"ROI-{dt}-{u.id}",
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
@@ -54,7 +54,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.20)
                         TransactionHistory.objects.create(
-                            uuid=f"ROI-{dt}",
+                            uuid=f"ROI-{dt}-{u.id}",
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
@@ -74,7 +74,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.25)
                         TransactionHistory.objects.create(
-                            uuid=f"ROI-{dt}",
+                            uuid=f"ROI-{dt}-{u.id}",
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
@@ -94,7 +94,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.10)
                         TransactionHistory.objects.create(
-                            uuid=f"ROI-{dt}",
+                            uuid=f"ROI-{dt}-{u.id}",
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
