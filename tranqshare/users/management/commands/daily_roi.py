@@ -7,7 +7,7 @@ from django.utils.translation import gettext_lazy as _
 
 # from requests_html import HTMLSession
 from tranqshare.utils.logger import LOGGER
-from tranqshare.users.models import TradeOpen, TransactionHistory, User
+from tranqshare.users.models import TradeOpen, TransactionHistory, User, Currency
 
 class Command(BaseCommand):
     """This command updates a users Daily ROI depending
@@ -34,7 +34,7 @@ class Command(BaseCommand):
                         roi =  Decimal(asset)  * Decimal(0.15)
                         TransactionHistory.objects.create(
                             user=u,
-                            currency=4,
+                            currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
                             status= TransactionHistory.SUCCESS,
                             amount= roi,
@@ -53,7 +53,7 @@ class Command(BaseCommand):
                         roi =  Decimal(asset)  * Decimal(0.20)
                         TransactionHistory.objects.create(
                             user=u,
-                            currency=4,
+                            currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
                             status= TransactionHistory.SUCCESS,
                             amount= roi,
@@ -72,7 +72,7 @@ class Command(BaseCommand):
                         roi =  Decimal(asset)  * Decimal(0.25)
                         TransactionHistory.objects.create(
                             user=u,
-                            currency=4,
+                            currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
                             status= TransactionHistory.SUCCESS,
                             amount= roi,
@@ -91,7 +91,7 @@ class Command(BaseCommand):
                         roi =  Decimal(asset)  * Decimal(0.10)
                         TransactionHistory.objects.create(
                             user=u,
-                            currency=4,
+                            currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
                             status= TransactionHistory.SUCCESS,
                             amount= roi,
