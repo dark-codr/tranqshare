@@ -27,7 +27,7 @@ class Command(BaseCommand):
         for u in users:
             if u.invested:
                 if u.wallet.total_asset >= 999 and u.wallet.total_asset < 9999:
-                    duration = u.invested_date + datetime.timedelta(weeks=4)
+                    duration = u.wallet.invested_date + datetime.timedelta(weeks=4)
                     if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
@@ -46,7 +46,7 @@ class Command(BaseCommand):
                     else:
                         LOGGER.error(f"{u.username.title()} Trade week is closed")
                 elif u.wallet.total_asset >= 10000 and u.wallet.total_asset <= 25000:
-                    duration = u.invested_date + datetime.timedelta(weeks=14)
+                    duration = u.wallet.invested_date + datetime.timedelta(weeks=14)
                     if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
@@ -65,7 +65,7 @@ class Command(BaseCommand):
                     else:
                         LOGGER.error(f"{u.username.title()} Trade week is closed")
                 elif u.wallet.total_asset > 25000 and u.wallet.total_asset <= 1000000000000:
-                    duration = u.invested_date + datetime.timedelta(months=12)
+                    duration = u.wallet.invested_date + datetime.timedelta(months=12)
                     if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
@@ -84,7 +84,7 @@ class Command(BaseCommand):
                     else:
                         LOGGER.error(f"{u.username.title()} Trade week is closed")
                 else:
-                    duration = u.invested_date + datetime.timedelta(months=2)
+                    duration = u.wallet.invested_date + datetime.timedelta(months=2)
                     if trade_open and u.wallet.invested_date and u.wallet.invested_date <= duration :
                         # td = u.wallet.invested_date + datetime.timedelta(days=90)
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
