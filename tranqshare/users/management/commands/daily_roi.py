@@ -24,6 +24,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
         users = User.objects.all()
         trade_open = True #TradeOpen.objects.filter(id=1,open=True).exists()
+        dt = datetime.datetime.now().strftime("%Y%m%d%s")
         for u in users:
             if u.invested:
                 if u.wallet.total_asset >= 999 and u.wallet.total_asset < 9999:
@@ -33,6 +34,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.15)
                         TransactionHistory.objects.create(
+                            uuid=f"ROI-{dt}"
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
@@ -52,6 +54,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.20)
                         TransactionHistory.objects.create(
+                            uuid=f"ROI-{dt}"
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
@@ -71,6 +74,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.25)
                         TransactionHistory.objects.create(
+                            uuid=f"ROI-{dt}"
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
@@ -90,6 +94,7 @@ class Command(BaseCommand):
                         asset = u.wallet.total_asset #Deposit.objects.filter(user=u, status=Deposit.SUCCESS).aggregate(Sum('amount'))
                         roi =  Decimal(asset)  * Decimal(0.10)
                         TransactionHistory.objects.create(
+                            uuid=f"ROI-{dt}"
                             user=u,
                             currency=Currency.objects.get(name="USDT"),
                             transaction_type= TransactionHistory.ROI,
